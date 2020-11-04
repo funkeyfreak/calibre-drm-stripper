@@ -1,0 +1,4 @@
+library/** filter=lfs diff=lfs merge=lfs -text
+plugins/** filter=lfs diff=lfs merge=lfs -text
+to_import/** filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text

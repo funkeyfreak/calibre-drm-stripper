@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  drm-remover:
+    image: linuxserver/calibre:v4.23.0-ls78
+    #command: bash -c "calibre-customize /tmp/plugins/DeDRM_Plugin.zip"
+    container_name: drm-remover
+    environment:
+      - PUID=99
+      - PGID=100
+      - TZ=Europe/London
+      #- GUAC_USER=admin #optional
+      #- GUAC_PASS=21232f297a57a5a743894a0e4a801fc3 #optional
+      - UMASK_SET=022 #optional
+      - CLI_ARGS= #optional
+    volumes:
+      #- /path/to/data:/config
+      - ./library:/config
+      - ./plugins:/tmp/plugins
+      - ./books:/tmp/books
+      - ./to_import:/tmp/to_import
+      # - type: volume
+      #   source: ./library
+      #   target: /config
+      # - type: volume
+      #   source: ./plugins
+      #   target: /tmp/plugins
+    ports:
+      - 8080:8080
+      - 8081:8081
+    restart: unless-stopped
