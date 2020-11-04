@@ -42,4 +42,7 @@ calibre-docker-compose.yaml
 books/*
 !books/.gitkeep
 
+# post-init commit ignores
+library/Calibre Library/*
+
 # End of https://www.toptal.com/developers/gitignore/api/osx,bash,docker
